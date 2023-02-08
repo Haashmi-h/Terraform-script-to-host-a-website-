@@ -35,10 +35,9 @@ To install ***Terraform*** and ***Git*** based on local machine, refer
 </br>
 This deployment is done based on following diagram:</br>
 ![ec2tfdiag drawio](https://user-images.githubusercontent.com/117455666/217465183-d745b59f-ff80-4050-bbe2-eb50dd36cded.png)
-
-#### VPC, Internet Gateway, 2 public and 1 private subnets, Elastic IP address, NAT gateway
 </br>
- </br>
+</br>
+#### VPC, Internet Gateway, 2 public and 1 private subnets, Elastic IP address, NAT gateway
 This deployment is implemented in region MUMBAI and  is created on the IP range 172.16.0.0/16.
 </br></br>
 
@@ -75,5 +74,5 @@ These codes were pushed to git repository from the directory where the source co
 [Git Push](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github)
 
 
-### Terraform scripts used:
-#### variables.tf
+#### Terraform scripts used:
+##### variables.tf
