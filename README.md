@@ -75,4 +75,68 @@ These codes were pushed to git repository from the directory where the source co
 
 
 #### Terraform scripts used:
+##### provider.tf
+Here we declare which provider is used for deploying this multi tier setup.</br>
+We choose AWS provider so that AWS resources can be used.</br>
+
 ##### variables.tf
+All the variables needed for the deployment are declared here.</br>
+Some of the variables are defined from the variables.tf file inside [VPC module](https://github.com/Haashmi-h/aws-vpc-module/blob/master/variables.tf)
+</br>
+Variables are: </br>
+a) Project name which can be used as tags on resources.</br>
+b) Region in which this project is deployed. Here "ap-south-1", Mumbai region is used. </br>
+c) IAM user credentials (from Programmatic access)</br>
+d) Instance details including Instance type and AMI used. Here, t2.micro and AmazonLinux AMI are chosen.</br>
+e) Number of subnets defined from the length() function applied on avaialbility zones.</br>
+f) CIDR range of network at which VPC is created. Here the IP range of 172.16.0.0/16 used.</br>
+g) Private hosted zone and record name for connecting an instance from private network which is used for database server. Then the public hostedzone record name</br>
+h) Variables needed for database server setup and wordpress installation on the scripts dbsetup.sh and wpinstall.sh</br>
+i) Allowed IPs to connect the bastion host.</br>
+j) SSH and Port controls.</br>
+</br>
+##### datasource.tf
+This file contains entries for </br>
+a) list available availability zones in a region.</br>
+b) fetching public hosted zone of the domain mentioned in variables.tf, in route53.</br>
+c) fetching the userdata files as templates with "path module".</br>
+</br>
+##### main.tf
+All the resources used for implementing this project are created here based on the values in above terraform scripts.</br>
+Resources created are:</br>
+a) VPC created using the module [VPC](https://github.com/Haashmi-h/aws-vpc-module)
+</br>
+b) Security groups needed for 3 ec2 instances bastion server, frontend server and database server.</br>
+c) AWS key pair to create Ec2 instances</br>
+d) 3 EC2 instances created based on variables and resources mentioned above for the bastion server, frontend server and database server respectively.</br>
+e) Hosted zone and records needed for the wordpress installation.
+</br>
+##### outputs.tf
+This is used to print the needed outputs from the resources created using main.tf.</br>
+</br>
+</br>
+</br>
+
+Once these terraform scripts are saved in a project directory on the server where these are deployed, following terraform commands are used to build the setup.
+</br>
+` terraform init`
+</br>
+` terraform fmt`
+</br>
+` terraform validate`
+</br>
+` terraform plan`
+</br>
+` terraform apply`
+</br>
+</br>
+</br>
+</br>
+****Thank you..****
+
+
+
+
+
+
+
