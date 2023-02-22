@@ -120,18 +120,30 @@ This is used to print the needed outputs from the resources created using main.t
 Once these terraform scripts are saved in a project directory on the server where these are deployed, following terraform commands are used to build the setup.
 </br>
 ` terraform init`
+Once this is done, it will show as follows: 
+</br>
+<img width="495" alt="tf init success" src="https://user-images.githubusercontent.com/117455666/220566169-818f6e24-058b-4ced-8cb2-d8acbd3176fb.png">
 </br>
 ` terraform fmt`
 </br>
 ` terraform validate`
+This will show as valid if there is no errors in the scripts.</br>
+<img width="564" alt="tf valid" src="https://user-images.githubusercontent.com/117455666/220566495-93cf8735-8588-40fc-92cd-30af560cdc95.png">
 </br>
 ` terraform plan`
 </br>
 ` terraform apply`
+This will show as follows:</br>
+<img width="164" alt="ec2-apply2" src="https://user-images.githubusercontent.com/117455666/220567161-42e488b2-35e3-4f5d-a496-ade912298c6e.png">
+</br>
+</br>
+Additional, this setup can also be removed via terraform.
+For that, the command `terraform destroy` command is used.
 </br>
 </br>
 </br>
 </br>
+
 ****Thank you..****
 
 
